@@ -38,10 +38,14 @@ class _CalcViewState extends State<CalcView> {
         equation = equation.substring(0, equation.length - 1);
         if (equation == "") {
           equation = "0";
+        }
+      } else if (btnText == "+/-") {
+        if (equation[0] != '-') {
+          equation = '-$equation';
         } else {
           equation = equation.substring(1);
         }
-      } else if(btnText == "="){
+      } else if (btnText == "=") {
         expression = equation;
         expression = expression.replaceAll('x', '*');
         expression = expression.replaceAll('÷', '/');
@@ -53,14 +57,14 @@ class _CalcViewState extends State<CalcView> {
 
           ContextModel cm = ContextModel();
           result = '${exp.evaluate(EvaluationType.REAL, cm)}';
-          if(expression.contains('%')){
+          if (expression.contains('%')) {
             result = doesContainDecimal('%');
           }
         } catch (e) {
           result = 'Error';
         }
       } else {
-        if(equation == '0'){
+        if (equation == '0') {
           equation = btnText;
         } else {
           equation += btnText;
@@ -85,7 +89,10 @@ class _CalcViewState extends State<CalcView> {
             padding: EdgeInsets.all(0),
             child: Text(
               'CALC',
-              style: TextStyle(color: Colors.white38, fontWeight: FontWeight.w800, fontSize: 26),
+              style: TextStyle(
+                  color: Colors.white38,
+                  fontWeight: FontWeight.w800,
+                  fontSize: 26),
             ),
           ),
           SizedBox(
@@ -219,7 +226,7 @@ class _CalcViewState extends State<CalcView> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       caclButton(
-                          "", Colors.black, () => btnPressed("")),
+                          '+/-', Colors.white10, () => btnPressed('+/-')),
                       SizedBox(width: MediaQuery.of(context).size.width * 0.04),
                       caclButton("0", Colors.white10, () => btnPressed("0")),
                       SizedBox(width: MediaQuery.of(context).size.width * 0.04),

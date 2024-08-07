@@ -11,11 +11,11 @@ Widget caclButton(String btnText, Color btnColor, void Function()? btnPressed) {
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
-        backgroundColor: btnColor
+        backgroundColor: btnColor,
       ),
       child: Text(
         btnText,
-        style: const TextStyle(fontSize: 27, color: Colors.white),
+        style: const TextStyle(fontSize: 20, color: Colors.white),
       ),
     ),
   );
