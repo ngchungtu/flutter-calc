@@ -104,6 +104,7 @@ class _CalcViewState extends State<CalcView> {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
+          //result row
           Align(
             alignment: Alignment.bottomRight,
             child: SingleChildScrollView(
@@ -165,6 +166,7 @@ class _CalcViewState extends State<CalcView> {
               ),
             ),
           ),
+          //end result row
           //row 1
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
