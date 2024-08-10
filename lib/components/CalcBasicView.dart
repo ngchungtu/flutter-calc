@@ -72,14 +72,30 @@ class _CalcBasicViewState extends State<CalcBasicView> {
 
   Widget customOutlineButton(String value) {
     return Expanded(
-      child: OutlinedButton(
-        onPressed: () => calcHandleClicked(value),
-        style: OutlinedButton.styleFrom(
-          backgroundColor: Colors.white10,
-        ),
-        child: Text(
-          value,
-          style: const TextStyle(fontSize: 15),
+      child: Container(
+        height: 70,
+        child: Padding(
+          padding: const EdgeInsets.only(
+              left: 3.0, right: 3.0, top: 1.0, bottom: 1.0),
+          child: OutlinedButton(
+            onPressed: () => calcHandleClicked(value),
+            style: OutlinedButton.styleFrom(
+              backgroundColor: (value == "+" ||
+                      value == "-" ||
+                      value == "*" ||
+                      value == "/" ||
+                      value == "=" ||
+                      value == "C")
+                  ? Colors.orange
+                  : Colors.white12,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50)),
+            ),
+            child: Text(
+              value,
+              style: const TextStyle(fontSize: 25, color: Colors.white),
+            ),
+          ),
         ),
       ),
     );
@@ -123,7 +139,7 @@ class _CalcBasicViewState extends State<CalcBasicView> {
                 child: Text(
                   result,
                   style: const TextStyle(
-                    fontSize: 20,
+                    fontSize: 25,
                     color: Colors.amber,
                   ),
                 ),
